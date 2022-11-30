@@ -11,6 +11,7 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -142,8 +143,8 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
         protected open var textLengthType = ReadMoreOption.TYPE_CHARACTER
         protected open var moreLabel = context.getString(R.string.text_value_read_more)
         protected open var lessLabel = context.getString(R.string.text_value_read_less)
-        protected open var moreLabelColor = Color.parseColor("#ff00ff")
-        protected open var lessLabelColor = Color.parseColor("#ff00ff")
+        protected open var moreLabelColor = getColorDefault()
+        protected open var lessLabelColor = getColorDefault()
         protected open var labelUnderLine = false
         protected open var expandAnimation = false
 
@@ -203,6 +204,17 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
          * @param anim A [Boolean] value.
          */
         fun expandAnimation(anim: Boolean) = apply { expandAnimation = anim }
+
+        /**
+         * Get color default
+         *
+         * @return int Color Primary default theme
+         */
+        private fun getColorDefault(): Int{
+            val typedValue = TypedValue()
+            context.theme.resolveAttribute(com.google.android.material.R.attr.colorPrimary, typedValue, true)
+            return typedValue.data
+        }
 
         /**
          * Creates an [ReadMoreOption] with the arguments supplied to this builder.
