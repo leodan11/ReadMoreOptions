@@ -30,7 +30,7 @@ allprojects {
 Step 2. Add the dependency
 ```gradle
 dependencies {
-  implementation 'com.github.leodan11:ReadMoreOptions:1.0.0'
+  implementation 'com.github.leodan11:ReadMoreOptions:{latest version}'
 }
 ```
 
