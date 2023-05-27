@@ -75,6 +75,7 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
             }
             val spannableStringBuilder = SpannableStringBuilder(text.subSequence(0, textLengthNew))
                 .append("…")
+                .append(" ")
                 .append(moreLabel)
             val ss = SpannableString.valueOf(spannableStringBuilder)
             val clickableSpan: ClickableSpan = object : ClickableSpan() {
@@ -107,6 +108,7 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
     private fun addReadLess(textView: TextView, text: CharSequence) {
         textView.maxLines = Int.MAX_VALUE
         val spannableStringBuilder = SpannableStringBuilder(text)
+            .append(" ")
             .append(lessLabel)
         val ss = SpannableString.valueOf(spannableStringBuilder)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
@@ -180,16 +182,16 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
         /**
          * Set the label text color to read more action.
          *
-         * @param more_color Label color. Eg: [Color.RED]
+         * @param moreColor Label color. Eg: [Color.RED]
          */
-        fun moreLabelColor(more_color: Int) = apply { moreLabelColor = more_color }
+        fun moreLabelColor(moreColor: Int) = apply { moreLabelColor = moreColor }
 
         /**
          * Set the label text color to read less action.
          *
-         * @param less_color Label color. Eg: [Color.BLUE]
+         * @param lessColor Label color. Eg: [Color.BLUE]
          */
-        fun lessLabelColor(less_color: Int) = apply { lessLabelColor = less_color }
+        fun lessLabelColor(lessColor: Int) = apply { lessLabelColor = lessColor }
 
         /**
          * Set the underline to the text.

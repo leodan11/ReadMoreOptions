@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="text_value_read_more">Leer más</string>
-    <string name="text_value_read_less">Leer menos</string>
+    <string name="text_value_read_more">[leer más]</string>
+    <string name="text_value_read_less">[leer menos]</string>
 </resources>
