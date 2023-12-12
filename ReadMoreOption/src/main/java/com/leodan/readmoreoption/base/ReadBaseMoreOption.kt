@@ -15,35 +15,35 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.RestrictTo
 import androidx.annotation.StringRes
 import com.leodan.readmoreoption.R
 import com.leodan.readmoreoption.ReadMoreOption
 
-@RestrictTo(RestrictTo.Scope.LIBRARY)
-abstract class ReadBaseMoreOption(protected open val context: Context,
-                                  protected open val textLength: Int = 0,
-                                  protected open val textLengthType: Int = 0,
-                                  protected open val moreLabel: String? = null,
-                                  protected open val lessLabel: String? = null,
-                                  protected open val moreLabelColor: Int = 0,
-                                  protected open val lessLabelColor: Int = 0,
-                                  protected open val labelUnderLine: Boolean = false,
-                                  protected open val expandAnimation: Boolean = false) {
+abstract class ReadBaseMoreOption(
+    protected open val context: Context,
+    protected open val textLength: Int = 0,
+    protected open val textLengthType: Int = 0,
+    protected open val moreLabel: String? = null,
+    protected open val lessLabel: String? = null,
+    protected open val moreLabelColor: Int = 0,
+    protected open val lessLabelColor: Int = 0,
+    protected open val labelUnderLine: Boolean = false,
+    protected open val expandAnimation: Boolean = false,
+) {
 
 
     /**
-     * Set the text that is displayed in the textview.
+     * Set the text displayed in the textview.
      *
      * @param textView The view where the text will be displayed.
      * @param text The text to display.
      */
-    fun addReadMoreTo(textView: TextView, @StringRes text: Int){
+    fun addReadMoreTo(textView: TextView, @StringRes text: Int) {
         addReadMoreTo(textView = textView, text = context.getString(text))
     }
 
     /**
-     * Set the text that is displayed in the textview.
+     * Set the text displayed in the textview.
      *
      * @param textView The view where the text will be displayed.
      * @param text The text to display.
@@ -138,7 +138,7 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
      * @property context The parent context
      * @constructor Create empty Builder.
      */
-    abstract class Builder<D: ReadBaseMoreOption>(protected val context: Context){
+    abstract class Builder<D : ReadBaseMoreOption>(protected val context: Context) {
 
         // Optional
         protected open var textLength = 100
@@ -212,9 +212,13 @@ abstract class ReadBaseMoreOption(protected open val context: Context,
          *
          * @return int Color Primary default theme
          */
-        private fun getColorDefault(): Int{
+        private fun getColorDefault(): Int {
             val typedValue = TypedValue()
-            context.theme.resolveAttribute(com.google.android.material.R.attr.colorPrimary, typedValue, true)
+            context.theme.resolveAttribute(
+                com.google.android.material.R.attr.colorPrimary,
+                typedValue,
+                true
+            )
             return typedValue.data
         }
 
